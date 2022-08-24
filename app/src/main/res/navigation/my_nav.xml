@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/foodMenuFragment">
+
+    <fragment
+        android:id="@+id/foodMenuFragment"
+        android:name="com.example.foodmenu.FoodMenuFragment"
+        android:label="fragment_food_menu"
+        tools:layout="@layout/fragment_food_menu" >
+        <action
+            android:id="@+id/action_foodMenuFragment_to_addMenuFragment"
+            app:destination="@id/addMenuFragment" />
+        <action
+            android:id="@+id/foodMenuFragment2"
+            app:destination="@id/addMenuFragment"
+            app:popUpTo="@id/addMenuFragment" />
+        <action
+            android:id="@+id/action_foodMenuFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMenuFragment"
+        android:name="com.example.foodmenu.AddMenuFragment"
+        android:label="fragment_add_menu"
+        tools:layout="@layout/fragment_add_menu" >
+        <action
+            android:id="@+id/action_addMenuFragment_to_foodMenuFragment"
+            app:destination="@id/foodMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.foodmenu.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_foodMenuFragment"
+            app:destination="@id/foodMenuFragment" />
+        <argument
+            android:name="currentMenu"
+            app:argType="com.example.foodmenu.Database.foodTable" />
+    </fragment>
+</navigation>
